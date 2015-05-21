@@ -11,21 +11,19 @@
     <link rel="stylesheet" href="styles/main.css">
     <!-- endbuild-->
     <!-- build:js bower_components/webcomponentsjs/webcomponents.min.js -->
+    <script src="../bower_components/jquery/dist/jquery.min.js"></script>
     <script src="../bower_components/webcomponentsjs/webcomponents.js"></script>
     <!-- endbuild -->
     <!-- will be replaced with elements/elements.vulcanized.html -->
     <link rel="import" href="elements/elements.html">
     <link rel="import" href="../bower_components/speech-mic/speech-mic.html">
     <!-- endreplace-->
-
   </head>
   
   <body unresolved fullbleed layout vertical>
-    <template is="auto-binding" id="app">
-
-    </template>
+    <template is="auto-binding" id="app"></template>
     <!-- build:js scripts/app.js -->
-    <speech-element > </speech-element>
+    <speech-element text="b"></speech-element>
     <script src="scripts/app.js"></script>
     <!-- endbuild-->
   </body>

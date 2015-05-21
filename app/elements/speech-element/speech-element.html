@@ -1,27 +1,22 @@
 <link rel="import" href="../../bower_components/polymer/polymer.html">
 <link rel="import" href="../../bower_components/speech-mic/speech-mic.html">
-<polymer-element name="speech-element" attributes="">
+<link rel="import" href="../../bower_components/voice-elements/dist/voice-player.html">
+<link rel="import" href="../../bower_components/voice-elements/dist/voice-recognition.html">
+<polymer-element name="speech-element" attributes="text">
   <template>
     <link rel="stylesheet" href="speech-element.css">
-    <div horizontal center layout id="widget">
-      <input id="speechInput">
-      <speech-mic id="speechMic"></speech-mic>
+    <div vertical layout>
+      <div horizontal center layout id="widget">
+        <p id="speechPhrase">{{text}}</p>
+        <form action="submit"></form>
+        <voice-player autoplay text="{{text}}"></voice-player>
+        <input id="speechInput">
+        <speech-mic id="speechMic"></speech-mic>
+      </div>
+      <div>
+        <core-icon icon="check-circle" id="check_icon"></core-icon>
+      </div>
     </div>
   </template>
-  <script>
-    (function () {
-      Polymer({
-        
-        ready:function(){
-        var speechInput = this.$.speechInput;
-        var speechMic = this.$.speechMic;
-      
-        speechMic.addEventListener('speech-mic-result', function(e) {
-        speechInput.value = e.detail.transcript;
-        });
-        }
-        // define element prototype here
-      });
-    })();
-  </script>
+  <script src="speech-element.js"></script>
 </polymer-element>
