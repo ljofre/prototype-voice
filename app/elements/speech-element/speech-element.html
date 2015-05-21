@@ -1,0 +1,27 @@
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+<link rel="import" href="../../bower_components/speech-mic/speech-mic.html">
+<polymer-element name="speech-element" attributes="">
+  <template>
+    <link rel="stylesheet" href="speech-element.css">
+    <div horizontal center layout id="widget">
+      <input id="speechInput">
+      <speech-mic id="speechMic"></speech-mic>
+    </div>
+  </template>
+  <script>
+    (function () {
+      Polymer({
+        
+        ready:function(){
+        var speechInput = this.$.speechInput;
+        var speechMic = this.$.speechMic;
+      
+        speechMic.addEventListener('speech-mic-result', function(e) {
+        speechInput.value = e.detail.transcript;
+        });
+        }
+        // define element prototype here
+      });
+    })();
+  </script>
+</polymer-element>
