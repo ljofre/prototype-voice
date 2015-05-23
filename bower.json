@@ -14,5 +14,27 @@
   },
   "devDependencies": {
     "web-component-tester": "Polymer/web-component-tester#^2.2.3"
+  },
+  "homepage": "https://github.com/ljofre/prototype-voice",
+  "authors": [
+    "Camilo Ramirez <cramyz@gmail.com>"
+  ],
+  "moduleType": [
+    "amd",
+    "es6",
+    "globals",
+    "node",
+    "yui"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "resolutions": {
+    "webcomponentsjs": "0.7.0"
   }
 }
