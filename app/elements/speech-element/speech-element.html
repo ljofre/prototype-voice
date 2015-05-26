@@ -8,12 +8,9 @@
     <div vertical layout>
       <div horizontal center layout id="widget">
         <p id="speechPhrase">{{text}}</p>
-        <form action="submit"></form>
-        <voice-player autoplay text="{{text}}"></voice-player>
+        <voice-player text="{{text}}" id="voice"></voice-player>
         <input id="speechInput">
         <speech-mic id="speechMic" language="en-US"></speech-mic>
-      </div>
-      <div>
         <core-icon icon="check-circle" id="check_icon"></core-icon>
       </div>
     </div>

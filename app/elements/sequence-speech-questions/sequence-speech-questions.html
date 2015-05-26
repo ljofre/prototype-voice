@@ -1,0 +1,11 @@
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+<link rel="import" href="../speech-element/speech-element.html">
+<polymer-element name="sequence-speech-questions" attributes="text_list">
+  <template>
+    <link rel="stylesheet" href="sequence-speech-questions.css">
+    <template repeat="{{text in text_list}}">
+      <speech-element text="{{text}}"></speech-element>
+    </template>
+  </template>
+  <script src = "sequence-speech-questions.js"></script>
+</polymer-element>
