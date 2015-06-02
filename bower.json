@@ -2,24 +2,16 @@
   "name": "prototype-voice",
   "version": "0.0.0",
   "dependencies": {
-    "core-elements": "Polymer/core-elements#^0.5.1",
-    "paper-elements": "Polymer/paper-elements#^0.5.1",
-    "polymer": "Polymer/polymer#^0.5.4",
     "voice-elements": "~0.2.0",
-    "core-icon": "Polymer/core-icon#~0.5.6",
-    "core-icons": "Polymer/core-icons#~0.5.6",
-    "core-iconset": "Polymer/core-iconset#~0.5.6",
-    "core-iconset-svg": "Polymer/core-iconset-svg#~0.5.6",
     "jquery": "~2.1.4",
-    "speech-mic": "PolymerLabs/speech-mic#~0.5.0",
-    "socket.io": "~1.3.5"
-  },
-  "devDependencies": {
-    "web-component-tester": "Polymer/web-component-tester#^2.2.3"
+    "angular": "~1.4.0",
+    "speech-mic": "PolymerLabs/speech-mic",
+    "polymer": "~1.0.2"
   },
   "homepage": "https://github.com/ljofre/prototype-voice",
   "authors": [
-    "Camilo Ramirez <cramyz@gmail.com>"
+    "Camilo Ramirez <cramyz@gmail.com>",
+    "Leonardo Jofre <ljofre2146@gmail.com>"
   ],
   "moduleType": [
     "amd",
