@@ -1,5 +1,7 @@
 
 Polymer({
+      
+    // metodos
     ready: function () {
         var speechInput = this.$.speechInput;
         var speechMic = this.$.speechMic;
