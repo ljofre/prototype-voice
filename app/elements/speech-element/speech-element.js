@@ -1,13 +1,10 @@
 
 Polymer({
       ready: function () {
-            var voice = this.$.voice;
             var speechInput = this.$.speechInput;
             var speechMic = this.$.speechMic;
             var speechPhrase = this.$.speechPhrase;
             var check_icon = this.$.check_icon;
-            
-            voice.speak();
             speechInput.style.display = 'none';
             //Separamos las palabras que son suseptibles de reconocer
             var words = speechPhrase.innerText.split('/');
@@ -34,5 +31,10 @@ Polymer({
                         }
                   }
             });
+      },
+      speak: function(){
+            voice = this.$.voice;
+            voice.speak();
       }
+      
 });
