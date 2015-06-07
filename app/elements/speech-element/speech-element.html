@@ -2,7 +2,7 @@
 <link rel="import" href="../../bower_components/speech-mic/speech-mic.html">
 <link rel="import" href="../../bower_components/voice-elements/dist/voice-player.html">
 <link rel="import" href="../../bower_components/voice-elements/dist/voice-recognition.html">
-<polymer-element name="speech-element" attributes="text">
+<polymer-element name="speech-element" attributes="text state icon">
   <template>
     <link rel="stylesheet" href="speech-element.css">
     <div vertical layout>
@@ -11,8 +11,10 @@
         <voice-player text="{{text}}" id="voice"></voice-player>
         <input id="speechInput">
         <speech-mic id="speechMic" language="en-US"></speech-mic>
-        <core-icon icon="check-circle" id="check_icon"></core-icon>
+        <button type="button" id="btn.hablar" on-click="{{listen}}"> hablar </button>
         <button type="button" id="btn.escuchar" on-click="{{speak}}"> Escuchar </button>
+        <core-icon icon="check-circle" id="check_icon"></core-icon>
+        
       </div>
     </div>
   </template>
