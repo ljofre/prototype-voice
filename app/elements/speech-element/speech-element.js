@@ -3,7 +3,6 @@ Polymer({
     
     //propiedades
     state: false,
-    speechMic: this.$.speechMic,
     // metodos
     ready: function () {
         var speechInput = this.$.speechInput;
