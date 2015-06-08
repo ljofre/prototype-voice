@@ -8,7 +8,7 @@
     <div vertical layout>
       <div horizontal center layout id="widget">
         <div vertical center layout>
-          <template repeat="{{choice in choices}}">
+          <template repeat="{{choice in alternatives.choices}}">
             <div>
               <p id="speechPhrase">{{choice}}</p>
             </div>
@@ -16,7 +16,7 @@
         </div>
         <voice-player id="voice"></voice-player>
         <div id="texts">
-          <template repeat="{{choice in choices}}">
+          <template repeat="{{choice in alternatives.choices}}">
             <voice-player class="{{choice}}" text='{{choice}}'></voice-player>
           </template>
         </div>
@@ -24,7 +24,7 @@
         <speech-mic id="speechMic" language="en-US"></speech-mic>
         <button type="button" id="btn.hablar" on-click="{{listen}}">hablar</button>
         <div vertical center layout>
-          <template repeat="{{choice in choices}}">
+          <template repeat="{{choice in alternatives.choices}}">
             <button type="button" id="{{choice}}" on-click="{{speak}}">Escuchar</button>
           </template>
         </div>
