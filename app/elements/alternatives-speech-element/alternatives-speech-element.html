@@ -1,21 +1,36 @@
 <link rel="import" href="../../bower_components/polymer/polymer.html">
-  <link rel="import" href="../speech-element/speech-element.html">
-<polymer-element name="alternatives-speech-element" attributes="">
+<link rel="import" href="../../bower_components/speech-mic/speech-mic.html">
+<link rel="import" href="../../bower_components/voice-elements/dist/voice-player.html">
+<link rel="import" href="../../bower_components/voice-elements/dist/voice-recognition.html">
+<polymer-element name="alternatives-speech-element" attributes="alternatives">
   <template>
     <link rel="stylesheet" href="alternatives-speech-element.css">
-    <img src="" alt="">
-    <img src="" alt="">
-    <img src="" alt="">
-      
-    
+    <div vertical layout>
+      <div horizontal center layout id="widget">
+        <div vertical center layout>
+          <template repeat="{{choice in choices}}">
+            <div>
+              <p id="speechPhrase">{{choice}}</p>
+            </div>
+          </template>
+        </div>
+        <voice-player id="voice"></voice-player>
+        <div id="texts">
+          <template repeat="{{choice in choices}}">
+            <voice-player class="{{choice}}" text='{{choice}}'></voice-player>
+          </template>
+        </div>
+        <input id="speechInput">
+        <speech-mic id="speechMic" language="en-US"></speech-mic>
+        <button type="button" id="btn.hablar" on-click="{{listen}}">hablar</button>
+        <div vertical center layout>
+          <template repeat="{{choice in choices}}">
+            <button type="button" id="{{choice}}" on-click="{{speak}}">Escuchar</button>
+          </template>
+        </div>
+        <core-icon icon="check-circle" id="check_icon"></core-icon>
+      </div>
+    </div>
   </template>
-  <script>
-
-      Polymer({
-        // define element prototype here
-        is: "alternatives-speech-element",
-        
-      });
-
-  </script>
+  <script src="alternatives-speech-element.js"></script>
 </polymer-element>
