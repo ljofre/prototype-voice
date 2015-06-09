@@ -1,32 +1,31 @@
 Polymer("alternatives-speech-element", {
+    
+    transcript: null,
 
     ready: function () {
-        var alternatives = JSON.parse(this.alternatives);
         this.alternatives = JSON.parse(this.alternatives);
-        var speechInput = this.$.speechInput;
+        var alternatives = this.alternatives;
         var speechMic = this.$.speechMic;
         var check_icon = this.$.check_icon;
-        speechInput.style.display = 'none';
         speechMic.style.display = 'none';
-        //Separamos las palabras que son suseptibles de reconocer
         check_icon.style.color = "black";
         
         speechMic.addEventListener('speech-mic-result', function (e) {
-            speechInput.value = e.detail.transcript;
+            var transcript = e.detail.transcript;
             var words = alternatives.choices[alternatives.correct];
             words = words.split('/');
             
-            //Iteramos sobre el listado de palabras buscando la palabra reconocida
+            //Iter sobre el listado de palabras buscando la palabra reconocida
             for (var i in words) {
 
-                if (speechInput.value.toLowerCase().trim() == words[i].toLowerCase().trim()) {
+                if (this.transcript.toLowerCase().trim().search(words[i].toLowerCase().trim())!=0) {
                     speechMic.stop();
                     console.log("La palabra coincidio con: " + words[i]);
                     check_icon.style.color = "green";
                 }
 
                 else {
-                    console.log("no coincide " + words[i].toLowerCase() + " con " + speechInput.value.toLowerCase());
+                    console.log("no coincide " + words[i].toLowerCase() + " con " + transcript);
                     check_icon.style.color = "red";
                 }
             }
@@ -39,7 +38,6 @@ Polymer("alternatives-speech-element", {
     },
 
     listen: function () {
-
         this.$.speechMic.toggleRecognition();
     }
 

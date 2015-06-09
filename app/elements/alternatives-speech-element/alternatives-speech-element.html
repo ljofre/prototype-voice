@@ -2,7 +2,7 @@
 <link rel="import" href="../../bower_components/speech-mic/speech-mic.html">
 <link rel="import" href="../../bower_components/voice-elements/dist/voice-player.html">
 <link rel="import" href="../../bower_components/voice-elements/dist/voice-recognition.html">
-<polymer-element name="alternatives-speech-element" attributes="alternatives">
+<polymer-element name="alternatives-speech-element" attributes="alternatives search-type">
   <template>
     <link rel="stylesheet" href="alternatives-speech-element.css">
     <div vertical layout>
@@ -20,7 +20,6 @@
             <voice-player class="{{choice}}" text='{{choice}}'></voice-player>
           </template>
         </div>
-        <input id="speechInput">
         <speech-mic id="speechMic" language="en-US"></speech-mic>
         <button type="button" id="btn.hablar" on-click="{{listen}}">hablar</button>
         <div vertical center layout>
