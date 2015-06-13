@@ -1,6 +1,4 @@
 Polymer("alternatives-speech-element", {
-    
-    transcript: null,
 
     ready: function () {
         this.alternatives = JSON.parse(this.alternatives);
@@ -9,7 +7,7 @@ Polymer("alternatives-speech-element", {
         var check_icon = this.$.check_icon;
         speechMic.style.display = 'none';
         check_icon.style.color = "black";
-        
+
         speechMic.addEventListener('speech-mic-result', function (e) {
             var transcript = e.detail.transcript;
             var words = alternatives.choices[alternatives.correct];
@@ -18,7 +16,7 @@ Polymer("alternatives-speech-element", {
             //Iter sobre el listado de palabras buscando la palabra reconocida
             for (var i in words) {
 
-                if (this.transcript.toLowerCase().trim().search(words[i].toLowerCase().trim())!=0) {
+                if (this.transcript.toLowerCase().trim().search(words[i].toLowerCase().trim()) != 0) {
                     speechMic.stop();
                     console.log("La palabra coincidio con: " + words[i]);
                     check_icon.style.color = "green";

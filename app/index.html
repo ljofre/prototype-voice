@@ -1,6 +1,6 @@
 <!doctype html>
 <html lang="">
-  
+
   <head>
     <meta charset="utf-8">
     <meta name="description" content="">
@@ -19,17 +19,21 @@
     <link rel="import" href="../bower_components/speech-mic/speech-mic.html">
     <!-- endreplace-->
   </head>
-  
+
   <body unresolved fullbleed layout vertical>
     <template is="auto-binding" id="app"></template>
     <!-- build:js scripts/app.js -->
     <speech-element text='hello'></speech-element>
-    <alternatives-speech-element 
-      alternatives='{"choices":["home","house", "horse"], "correct" : 1}'
-      
-    </alternatives-speech-element>
-    <script src="scripts/app.js"></script>
-    <!-- endbuild-->
+    <alternatives-speech-element alternatives='{"choices":["home","house", "horse"], "correct" : 1}' </alternatives-speech-element>
+      <script src="scripts/app.js"></script>
+      <!-- endbuild-->
+      <script>
+        var a = document.querySelector("speech-element");
+        a.addEventListener("success", function(){
+          console.log("success!");
+        });
+
+      </script>
   </body>
 
 </html>

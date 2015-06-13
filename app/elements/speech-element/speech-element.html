@@ -10,11 +10,11 @@
         <p id="speechPhrase">{{text}}</p>
         <voice-player text="{{text}}" id="voice"></voice-player>
         <input id="speechInput">
-        <speech-mic id="speechMic" language="en-US"></speech-mic>
+        <speech-mic id="speechMic" language="en-US" on-speech-mic-result={{resultEvent}}></speech-mic>
         <button type="button" id="btn.hablar" on-click="{{listen}}"> hablar </button>
         <button type="button" id="btn.escuchar" on-click="{{speak}}"> Escuchar </button>
         <core-icon icon="check-circle" id="check_icon"></core-icon>
-        
+
       </div>
     </div>
   </template>
