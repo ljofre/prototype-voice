@@ -1,13 +1,18 @@
 (function () {
+    var procesando = false;
     Polymer("speech-element", {
         //metodos
-        eventFlag : true,
         ready: function () {
             this.text = JSON.parse(this.text);
             this.$.speechMic.style.display = 'none';
             this.$.check_icon.style.color = "black";
         },
         resultEvent: function (e) {
+            console.log(procesando);
+            if (procesando) {
+                return;
+            }
+            procesando = true;
             var transcript = e.detail.transcript;
             var words = this.text.english.split('/');
             //Iter sobre el listado de palabras buscando la palabra reconocida
@@ -17,16 +22,14 @@
                     this.$.speechMic.stop();
                     console.log("La palabra coincidio con: " + words[i]);
                     this.$.check_icon.style.color = "green";
-                    if (this.eventFlag) {
                         this.fire("success");
-                        this.eventFlag = false;
-                    };
                 }
                 else {
                     console.log("no coincide " + words[i].toLowerCase() + " con " + transcript.toLowerCase());
                     this.$.check_icon.style.color = "red";
                 }
             }
+            procesando = false;
         },
 
         speak: function () {
@@ -35,6 +38,7 @@
 
         listen: function () {
             this.$.speechMic.toggleRecognition();
+            eventFlag = true;
         },
     });
 })();
