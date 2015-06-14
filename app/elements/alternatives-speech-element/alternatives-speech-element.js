@@ -1,5 +1,7 @@
 (function () {
     Polymer("alternatives-speech-element", {
+        
+        eventFlag : true,
         //metodos
         ready: function () {
             this.alternatives = JSON.parse(this.alternatives);
@@ -11,14 +13,15 @@
             var words = this.alternatives.choices[this.alternatives.correct].split('/');
             //Iter sobre el listado de palabras buscando la palabra reconocida
             for (var i in words) {
-
-                if (transcript.toLowerCase().trim().search(words[i].toLowerCase().trim()) != 0) {
+                if (transcript.toLowerCase().trim().search(words[i].toLowerCase().trim()) != -1) {
                     this.$.speechMic.stop();
                     console.log("La palabra coincidio con: " + words[i]);
                     this.$.check_icon.style.color = "green";
-                    this.fire("success");
+                    if(this.eventFlag){
+                        this.fire("success");
+                        this.eventFlag = false;
+                    };  
                 }
-
                 else {
                     console.log("no coincide " + words[i].toLowerCase() + " con " + transcript);
                     this.$.check_icon.style.color = "red";
@@ -32,6 +35,5 @@
         listen: function () {
             this.$.speechMic.toggleRecognition();
         }
-
     });
 })();

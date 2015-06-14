@@ -1,6 +1,7 @@
 (function () {
-    Polymer("speech-element",{
-        // metodos
+    Polymer("speech-element", {
+        //metodos
+        eventFlag : true,
         ready: function () {
             this.$.speechMic.style.display = 'none';
             this.$.check_icon.style.color = "black";
@@ -11,11 +12,14 @@
             //Iter sobre el listado de palabras buscando la palabra reconocida
             for (var i in words) {
 
-                if (this.$.speechInput.value.toLowerCase().trim() == words[i].toLowerCase().trim()) {
+                if (transcript.toLowerCase().trim().search(words[i].toLowerCase().trim()) != -1) {
                     this.$.speechMic.stop();
                     console.log("La palabra coincidio con: " + words[i]);
                     this.$.check_icon.style.color = "green";
-                    this.fire("success");
+                    if (this.eventFlag) {
+                        this.fire("success");
+                        this.eventFlag = false;
+                    };
                 }
                 else {
                     console.log("no coincide " + words[i].toLowerCase() + " con " + transcript.toLowerCase());
