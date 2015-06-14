@@ -20,19 +20,25 @@
     <!-- endreplace-->
   </head>
 
-  <body unresolved fullbleed layout vertical>
+  <body>
     <template is="auto-binding" id="app"></template>
     <!-- build:js scripts/app.js -->
     <speech-element text='hello'></speech-element>
-    <alternatives-speech-element alternatives='{"choices":["home","house", "horse"], "correct" : 1}' </alternatives-speech-element>
+    <alternatives-speech-element
+      alternatives='{"choices":["home","house", "horse"], "correct" : 1}'>
+    </alternatives-speech-element>
       <script src="scripts/app.js"></script>
       <!-- endbuild-->
       <script>
-        var a = document.querySelector("speech-element");
-        a.addEventListener("success", function(){
-          console.log("success!");
+        var speechElement = document.querySelector("speech-element");
+        speechElement.addEventListener("success", function(){
+          console.log("speech element is success!");
         });
-
+        
+        var altSpeechElement = document.querySelector("alternatives-speech-element");
+        altSpeechElement.addEventListener("success",function(){
+          console.log("alternatives speech element is success!");
+        });
       </script>
   </body>
 

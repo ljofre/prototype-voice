@@ -20,7 +20,7 @@
             <voice-player class="{{choice}}" text='{{choice}}'></voice-player>
           </template>
         </div>
-        <speech-mic id="speechMic" language="en-US"></speech-mic>
+        <speech-mic id="speechMic" language="en-US" on-speech-mic-result={{resultEvent}}></speech-mic>
         <button type="button" id="btn.hablar" on-click="{{listen}}">hablar</button>
         <div vertical center layout>
           <template repeat="{{choice in alternatives.choices}}">
