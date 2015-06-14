@@ -3,12 +3,13 @@
         //metodos
         eventFlag : true,
         ready: function () {
+            this.text = JSON.parse(this.text);
             this.$.speechMic.style.display = 'none';
             this.$.check_icon.style.color = "black";
         },
         resultEvent: function (e) {
             var transcript = e.detail.transcript;
-            var words = this.$.speechPhrase.innerText.split('/');
+            var words = this.text.english.split('/');
             //Iter sobre el listado de palabras buscando la palabra reconocida
             for (var i in words) {
 

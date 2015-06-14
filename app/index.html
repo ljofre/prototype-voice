@@ -23,9 +23,9 @@
   <body>
     <template is="auto-binding" id="app"></template>
     <!-- build:js scripts/app.js -->
-    <speech-element text='hello'></speech-element>
+    <speech-element text='{"english":"hello", spanish:"hola"}'></speech-element>
     <alternatives-speech-element
-      alternatives='{"choices":["home","house", "horse"], "correct" : 1}'>
+      alternatives='{"choices":["home","house", "horse"], "correct" : 1, "spanish": "casa"}'>
     </alternatives-speech-element>
       <script src="scripts/app.js"></script>
       <!-- endbuild-->
