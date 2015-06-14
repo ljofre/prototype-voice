@@ -6,6 +6,7 @@
             this.text = JSON.parse(this.text);
             this.$.speechMic.style.display = 'none';
             this.$.check_icon.style.color = "black";
+            this.$.spanish.style.display = "none";
         },
         resultEvent: function (e) {
             console.log(procesando);
@@ -22,7 +23,8 @@
                     this.$.speechMic.stop();
                     console.log("La palabra coincidio con: " + words[i]);
                     this.$.check_icon.style.color = "green";
-                        this.fire("success");
+                    this.fire("success");
+                    this.$.spanish.style.display = "block";
                 }
                 else {
                     console.log("no coincide " + words[i].toLowerCase() + " con " + transcript.toLowerCase());
@@ -38,7 +40,6 @@
 
         listen: function () {
             this.$.speechMic.toggleRecognition();
-            eventFlag = true;
         },
     });
 })();
