@@ -18,7 +18,6 @@
             var words = this.text.english.split('/');
             //Iter sobre el listado de palabras buscando la palabra reconocida
             for (var i in words) {
-
                 if (transcript.toLowerCase().trim().search(words[i].toLowerCase().trim()) != -1) {
                     this.$.speechMic.stop();
                     console.log("La palabra coincidio con: " + words[i]);

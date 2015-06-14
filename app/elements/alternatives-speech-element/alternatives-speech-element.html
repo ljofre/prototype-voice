@@ -2,7 +2,7 @@
 <link rel="import" href="../../bower_components/speech-mic/speech-mic.html">
 <link rel="import" href="../../bower_components/voice-elements/dist/voice-player.html">
 <link rel="import" href="../../bower_components/voice-elements/dist/voice-recognition.html">
-<polymer-element name="alternatives-speech-element" attributes="alternatives search-type">
+  <polymer-element name="alternatives-speech-element" attributes="alternatives search-type">
   <template>
     <link rel="stylesheet" href="alternatives-speech-element.css">
     <div vertical layout>
@@ -20,7 +20,10 @@
             <voice-player class="{{choice}}" text='{{choice}}'></voice-player>
           </template>
         </div>
-        <speech-mic id="speechMic" language="en-US" on-speech-mic-result={{resultEvent}}></speech-mic>
+        <speech-mic id="speechMic" 
+          language="en-US" 
+          on-speech-mic-result={{resultEvent}}>
+          </speech-mic>
         <button type="button" id="btn.hablar" on-click="{{listen}}">hablar</button>
         <div vertical center layout>
           <template repeat="{{choice in alternatives.choices}}">
@@ -30,6 +33,10 @@
         <core-icon icon="check-circle" id="check_icon"></core-icon>
       </div>
     </div>
+    <div>
+      <p id="spanish">{{alternatives.spanish}}</p>
+    </div>
+
   </template>
   <script src="alternatives-speech-element.js"></script>
 </polymer-element>
