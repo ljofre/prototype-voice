@@ -8,14 +8,21 @@
     <div vertical layout>
       <div horizontal center layout id="widget">
         <p id="speechPhrase">{{text.english}}</p>
-        <voice-player text="{{text}}" id="voice"></voice-player>
+        <voice-player text="{{text.english}}" id="voice"></voice-player>
         <speech-mic id="speechMic" language="en-US" on-speech-mic-result={{resultEvent}}></speech-mic>
-        <button type="button" id="btn.hablar" on-click="{{listen}}">
-          <img src="../../../icons/mic1.jpg" >
-        </button>
-        <button type="button" id="btn.escuchar" on-click="{{speak}}"> 
-          <img id = "img.escuchar" src="../../../icons/parlante.jpg">
-        </button>
+        <img
+          id="btn.hablar"
+          on-click="{{listen}}"
+          src="../../../icons/mic1.jpg"
+          onmouseover = "this.src='../../../icons/mic2.jpg'"
+          onmouseout = "this.src='../../../icons/mic1.jpg'"
+          >
+        </img>
+        <img
+          id="btn.escuchar"
+          on-click="{{speak}}"
+          src="../../../icons/parlante.jpg">
+        </img>
         <core-icon icon="check-circle" id="check_icon"></core-icon>
       </div>
     </div>

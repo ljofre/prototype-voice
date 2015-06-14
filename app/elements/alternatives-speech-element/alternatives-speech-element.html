@@ -17,23 +17,23 @@
         <voice-player id="voice"></voice-player>
         <div id="texts">
           <template repeat="{{choice in alternatives.choices}}">
-            <voice-player class="{{choice}}" text='{{choice}}'></voice-player>
+            <div horizontal>
+              <voice-player class="{{choice}}" text='{{choice}}'></voice-player>
+              <img  src="../../../icons/parlante.jpg" id="{{choice}}" on-click="{{speak}}">
+            </div>
           </template>
         </div>
-        <speech-mic id="speechMic" 
-          language="en-US" 
+        <speech-mic id="speechMic"
+          language="en-US"
           on-speech-mic-result={{resultEvent}}>
           </speech-mic>
-        <button type="button" id="btn.hablar" on-click="{{listen}}">
-          <img src="../../../icons/mic1.jpg" >
-        </button>
-        <div vertical center layout>
-          <template repeat="{{choice in alternatives.choices}}">
-            <button type="button" id="{{choice}}" on-click="{{speak}}">
-              <img id = "img.escuchar" src="../../../icons/parlante.jpg">
-            </button>
-          </template>
-        </div>
+        <img
+          on-click="{{listen}}"
+          src="../../../icons/mic1.jpg"
+          onmouseover = "this.src='../../../icons/mic2.jpg'"
+          onmouseout = "this.src='../../../icons/mic1.jpg'"
+          >
+        </img>
         <core-icon icon="check-circle" id="check_icon"></core-icon>
       </div>
     </div>
