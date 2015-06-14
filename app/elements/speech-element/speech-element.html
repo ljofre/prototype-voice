@@ -2,33 +2,48 @@
 <link rel="import" href="../../bower_components/speech-mic/speech-mic.html">
 <link rel="import" href="../../bower_components/voice-elements/dist/voice-player.html">
 <link rel="import" href="../../bower_components/voice-elements/dist/voice-recognition.html">
-<polymer-element name="speech-element" attributes="text">
+<polymer-element name="speech-element" attributes="data type">
   <template>
     <link rel="stylesheet" href="speech-element.css">
     <div vertical layout>
       <div horizontal center layout id="widget">
-        <p id="speechPhrase">{{text.english}}</p>
-        <voice-player text="{{text.english}}" id="voice"></voice-player>
+        
+        <div vertical center layout>
+          <!--texto con las alternativas -->
+          <template repeat="{{choice in data.choices}}">
+            <div>
+              <p id="speechPhrase">{{choice}}</p>
+            </div>   
+          </template>
+        </div>
+     
+        <div>
+          <template if="{{!single}}">
+            <template repeat="{{choice in data.choices}}">
+              <div horizontal>
+                <voice-player class="{{choice}}" text='{{choice}}'></voice-player>
+                <img src="../../../icons/parlante.jpg" id="{{choice}}" on-click="{{speak}}">
+              </div>
+            </template>
+          </template>
+          <template>
+            <img id="btn.escuchar" 
+              on-click="{{speak}}" 
+              src="../../../icons/parlante.jpg">
+            </img>
+          </template>
+        </div>
         <speech-mic id="speechMic" language="en-US" on-speech-mic-result={{resultEvent}}></speech-mic>
-        <img
-          id="btn.hablar"
-          on-click="{{listen}}"
-          src="../../../icons/mic1.jpg"
-          onmouseover = "this.src='../../../icons/mic2.jpg'"
-          onmouseout = "this.src='../../../icons/mic1.jpg'"
-          >
-        </img>
-        <img
-          id="btn.escuchar"
-          on-click="{{speak}}"
-          src="../../../icons/parlante.jpg">
-        </img>
+        <img on-click="{{listen}}" 
+          src="../../../icons/mic1.jpg" 
+          onmouseover="this.src='../../../icons/mic2.jpg'" 
+          onmouseout="this.src='../../../icons/mic1.jpg'"></img>
         <core-icon icon="check-circle" id="check_icon"></core-icon>
       </div>
     </div>
     <div>
-      <p id="spanish">{{text.spanish}}</p>
+      <p id="spanish">{{data.spanish}}</p>
     </div>
   </template>
-  <script src="speech-element.js"></script>
+  <script src=" speech-element.js"></script>
 </polymer-element>
