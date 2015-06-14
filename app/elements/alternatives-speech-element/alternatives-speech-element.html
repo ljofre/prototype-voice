@@ -24,10 +24,14 @@
           language="en-US" 
           on-speech-mic-result={{resultEvent}}>
           </speech-mic>
-        <button type="button" id="btn.hablar" on-click="{{listen}}">hablar</button>
+        <button type="button" id="btn.hablar" on-click="{{listen}}">
+          <img src="../../../icons/mic1.jpg" >
+        </button>
         <div vertical center layout>
           <template repeat="{{choice in alternatives.choices}}">
-            <button type="button" id="{{choice}}" on-click="{{speak}}">Escuchar</button>
+            <button type="button" id="{{choice}}" on-click="{{speak}}">
+              <img id = "img.escuchar" src="../../../icons/parlante.jpg">
+            </button>
           </template>
         </div>
         <core-icon icon="check-circle" id="check_icon"></core-icon>
